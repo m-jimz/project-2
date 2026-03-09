@@ -1,42 +1,146 @@
+html,
+body,
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
+  margin: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ==================== */
+/* 2. Reset & Base      */
+/* ==================== */
+body {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;               
+  font-family: sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* ==================== */
+/* 3. Layout            */
+/* ==================== */
+.flashcards-page {
+  min-height: 100vh;
+  display: flex;                           /* Change to flex */
+  flex-direction: column;                  /* Stack vertically */
+  justify-content: center;                 /* Center vertically */
+  align-items: center;                     /* Center horizontally */
+  gap: 1rem;
+  padding: 1.5rem;
+  width: 100%;                             /* Full width */
+  max-width: 1200px;                       /* Max container width */
+  margin: 0 auto;                          /* Center the container */
+}
+
+
+
+/* ==================== */
+/* 4. Header            */
+/* ==================== */
+.flashcards-header {
+  text-align: center;                       /* Center text */
+}
+
+.flashcards-title {
+  margin: 0;                                /* Remove default margin */
+  font-size: clamp(1.4rem, 3vw, 2rem);     /* Responsive font size */
+  font-weight: 700;                         /* Bold */
+}
+
+.flashcards-progress {
+  margin: var(--spacing-sm) 0 0;           
+  font-size: 0.95rem;                    
+}
+
+/* ==================== */
+/* 5. Content/Card      */
+/* ==================== */
+
+.flashcards-content {
+  width: min(92vw, 620px);                 
+  display: grid;
+  justify-items: center;                   
+}
+
+.flashcards-card {
+  width: 100%;                             /* Full container width */
+  min-height: 220px;                       /* Minimum height */
+  padding: 50px 50px;
+  border-radius: 25px;         
+  border: 1px solid white;  
+  background: transparent;              
+  color: white;              
+  font-size: 1.05rem;                      
+  line-height: 1.5;                        /* Line spacing */
+  cursor: pointer;                        /* Pointer cursor */
+  transition: transform 0.2s ease, border-color 0.2s ease; /* Smooth animation */
+}
+
+.flashcards-card:hover {
+  transform: translateY(-2px);             /* Lift on hover */
+  border-color: var(black);             /* Accent border */
+}
+
+.flashcards-card:focus-visible {
+  outline: 2px solid var(--accent);        /* Focus outline */
+  outline-offset: 3px;                     /* Space around outline */
+}
+
+
+
+
+/* ==================== */
+/* 6. Media/Images      */
+/* ==================== */
+.flashcards-media {
+  width: 100%;                             /* Full width */
+}
+
+.flashcards-image {
+  width: 100%;                             /* Full width */
+  max-height: 260px;                       /* Max height */
+  object-fit: cover;                       /* Crop to fit */
+  border-radius: var(--radius-md);         /* Rounded corners */
+  border: 1px solid var(--border-subtle);  /* Border */
+}
+
+/* ==================== */
+/* 7. Actions/Buttons   */
+/* ==================== */
+.flashcards-next-btn {
+  padding: 0.6rem 1.2rem;                  /* Inner spacing */
+  border-radius: 10px;                     /* Rounded corners */
+  border: 1px solid transparent;           /* Transparent border */
+  background: #1a1a1a;                     /* Dark background */
+  color: var(--text-primary);              /* Text color */
+  font-size: 1rem;                         /* Font size */
+  font-weight: 600;                        /* Semi-bold */
+  cursor: pointer;                         /* Pointer cursor */
+  transition: all 0.2s ease;               /* Smooth animation */
+}
+
+.flashcards-next-btn:hover {
+  border-color: var(--accent);             /* Accent border */
+  background: #252525;                     /* Lighter background */
+}
+
+.flashcards-next-btn:focus-visible {
+  outline: 2px solid var(--accent);        /* Focus outline */
+  outline-offset: 2px;                     /* Space around outline */
+}
+
+/* ==================== */
+/* 8. Responsive        */
+/* ==================== */
+@media (max-width: 640px) {
+  .flashcards-page {
+    padding: var(--spacing-md);            /* Smaller padding */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .flashcards-card {
+    min-height: 180px;                     /* Smaller card height */
+    font-size: 1rem;                       /* Smaller text */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
